@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic.list import listView
-from .models import BlogPostModel
+# from django.views.generic.list import listView
 from django.views.generic.detail import DetailView
+from .models import Articoli, Giornalista
 
 def home(request):
     blog_command = ['lista articoli','lista giornalisti']
@@ -18,7 +18,9 @@ def index(request):
     return render(request, "verificaLosa/index.html", context)
 
 class PostDetailView(listView):
-    model = BlogPostModel #modello dei dati da utilizzare
+    model = Articoli #modello dei dati da utilizzare
     template_name = "templates/news/articoli.html" #pagina per mostrare i dati
 
-# def listaArt():
+class PostDetailView2(listView):
+    model = Giornalista #modello dei dati da utilizzare
+    template_name = "templates/news/articoli.html" #pagina per mostrare i dati
