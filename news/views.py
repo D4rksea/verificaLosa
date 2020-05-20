@@ -1,15 +1,25 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
-from .models import Articoli, Giornalista
+from .models import Articolo,Giornalista
+from django.shortcuts import get_object_or_404
 
+# Create your views here.
 def home(request):
     return render(request, "home.html")
 
-class GiornalistiView(listView):
-    model = Giornalista #modello dei dati da utilizzare
-    template_name = "templates/news/articoli.html" #pagina per mostrare i dati
+class listaArticoliView(ListView):
+    model = Articolo
+    template_name = 'news/articoli.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["articoli"] = Articolo.objects.all()
+        return context
 
-class ArticoliView(listView):
-    model = Articoli #modello dei dati da utilizzare
-    template_name = "templates/news/articoli.html" #pagina per mostrare i dati
+class listaGiornalistiView(ListView):
+    model = Giornalista
+    template_name = 'news/giornalisti.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["giornalisti"] = Giornalista.objects.all()
+        return context

@@ -1,9 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from news import views
+from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.home, name='home'),
     path('admin/', admin.site.urls),
-    path('lista-articoli/', views.listaArt(), name='lista_articoli'),
 ]
