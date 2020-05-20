@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>{%block titolo%}ESEMPI{%endblock titolo%}</title>
+    <title>{%block titolo%}news{%endblock titolo%}</title>
 
     <!-- Bootstrap -->
 <!-- Latest compiled and minified CSS -->
@@ -31,55 +31,19 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Esempi
+              lista Articoli
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{% url 'esempi:if' %}">if</a>
-              <a class="dropdown-item" href="{% url 'esempi:ifelse' %}">ifelse</a>
-              <a class="dropdown-item" href="{% url 'esempi:elif' %}">elif</a>
-              <a class="dropdown-item" href="{% url 'esempi:for' %}">for</a>
-              <a class="dropdown-item" href="{% url 'esempi:ifequal' %}">ifequal</a>
-              <a class="dropdown-item" href="{% url 'esempi:ifnotequal' %}">ifnotequal</a>
-              <a class="dropdown-item" href="{% url 'esempi:filter' %}">filter</a>
-              <a class="dropdown-item" href="{% url 'esempi:for' %}">for</a>
-            </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Blog
+              lista giornalisti
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{% url 'blog:crea_post' %}">Crea post</a>
-              <a class="dropdown-item" href="{% url 'blog:lista_post' %}">Leggi post</a>
-              <a class="dropdown-item" href="{% url 'users_list' %}">Utenti</a>
-            </div>
           </li>
-          {% if request.user.is_authenticated %}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{ request.user.username }}
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{% url 'user_profile' username=request.user.username %}">Profilo</a>
-              <a class="dropdown-item" href="{% url 'password_change' %}">Aggiorna Password</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{% url 'logout' %}">Esci</a>
-            </div>
-          </li>
-      {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'registration_view' %}">Registrazione</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-      {% endif %}
         </ul>
       </div>
     </nav>
-
     <div class="container my-4">
-      <h3>Training Django</h3>
+      <h3>Django Verifica</h3>
      {%block contenuti%}
 
      {%endblock contenuti%}
